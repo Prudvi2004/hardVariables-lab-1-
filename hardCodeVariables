@@ -1,0 +1,21 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Function to calculate temperature using a quadratic model
+def calculate_temperature(a, b, c, time):
+    temperature = a * time**2 + b * time + c
+    return temperature
+
+a = 0.02
+b = 1.5
+c = 20  
+time = np.arange(0, 51, 1)
+temperature = calculate_temperature(a,b,c,time)
+plt.figure(figsize=(10, 6))
+plt.plot(time, temperature, label='Temperature model')
+plt.title('Quadratic temperature model')
+plt.xlabel('Time (hours)')
+plt.ylabel('Temperature (°C)')
+plt.legend()
+plt.grid(True)
+plt.show()
