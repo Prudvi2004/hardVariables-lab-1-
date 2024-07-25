@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Data points
+data = np.array([[0, 1], [4, 15], [8, 28], [12, 22], [16, 18], [20, 12], [24, 10]])
+
+# Extracting time and temperature data
+times = data[:, 0]
+temperatures = data[:, 1]
+
+# Fit a quadratic polynomial to the data
+coefficients = np.polyfit(times, temperatures, 2)
+a, b, c = coefficients
+
+# Model temperatures using the fitted quadratic equation
+model_temperatures = a * (times**2) + b * times + c
+
+# Plotting the actual data points
+plt.scatter(times, temperatures, label='Actual Data')
+
+# Plotting the quadratic model
+plt.plot(times, model_temperatures, color='red', label='Quadratic Model')
+
+# Plot details
+plt.xlabel("Time of Day (hours)")
+plt.ylabel("Temperature (C)")
+plt.legend()
+plt.show()
